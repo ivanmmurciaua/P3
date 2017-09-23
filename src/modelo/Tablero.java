@@ -2,17 +2,17 @@ package modelo;
 
 /**
  * 
- * @author Usuario
+ * @author Iván Mañús Murcia 48729799K
  *
  */
 
 public class Tablero {
 	/**
-	 * xd
+	 * Crea una dimension
 	 */
     private Coordenada dimension;
     /**
-     * ps eso xd
+     * Crea un tablero con unas dimensiones
      * @param dims 
      */
     public Tablero(Coordenada dims) {
