@@ -2,6 +2,8 @@ package modelo;
 
 /**
  * The Class Coordenada.
+ * 
+ * @author Iván Mañús Murcia 48729799K
  */
 public class Coordenada {
 	

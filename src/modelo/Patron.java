@@ -4,6 +4,8 @@ import java.util.Collection;
 
 /**
  * The Class Patron.
+ * 
+ * @author Iván Mañús Murcia 48729799K
  */
 public class Patron {
 	

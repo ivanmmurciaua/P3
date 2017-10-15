@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 /**
  * The Class Juego.
+ * 
+ * @author Iván Mañús Murcia 48729799K
  */
 public class Juego {
 	

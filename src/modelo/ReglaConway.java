@@ -4,6 +4,8 @@ package modelo;
 
 /**
  * The Class ReglaConway.
+ * 
+ * @author Iván Mañús Murcia 48729799K
  */
 public class ReglaConway {
 	
