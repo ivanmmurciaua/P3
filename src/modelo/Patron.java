@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.Collection;
+import modelo.excepciones.*;
 
 /**
  * The Class Patron.
@@ -14,16 +15,22 @@ public class Patron {
 	
 	/** The tablero. */
 	Tablero tablero;
-	
+
 	/**
 	 * Instantiates a new patron.
 	 *
 	 * @param nombre the nombre
 	 * @param tablero the tablero
+	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
 	 */
-	public Patron(String nombre,Tablero tablero) {
-		this.nombre=nombre;
-		this.tablero=tablero;		
+	public Patron(String nombre,Tablero tablero) throws ExcepcionArgumentosIncorrectos{
+		if(nombre==null||tablero==null) {
+			throw new ExcepcionArgumentosIncorrectos();
+		}
+		else {
+			this.nombre=nombre;
+			this.tablero=tablero;		
+		}
 	}
 	
 	/**
@@ -38,8 +45,13 @@ public class Patron {
 	 *
 	 * @param coor the coor
 	 * @return the celda
+	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
+	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
 	 */
-	public EstadoCelda getCelda(Coordenada coor) {
+	public EstadoCelda getCelda(Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero {
+		if(coor==null) {
+			throw new ExcepcionArgumentosIncorrectos();
+		}
 		return tablero.getCelda(coor);
 	}
 	
@@ -52,10 +64,11 @@ public class Patron {
 		return tablero.getPosiciones();
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * toString Patron
+	 *
+	 * @return the string
 	 */
-	@Override
 	public String toString() {
 		String cadena="";
 		cadena=cadena+this.nombre+"\n";
