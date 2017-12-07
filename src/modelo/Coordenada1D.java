@@ -18,9 +18,9 @@ public class Coordenada1D extends Coordenada {
 	 * @param c the c
 	 * @throws ExcepcionCoordenadaIncorrecta the excepcion coordenada incorrecta
 	 */
-	public Coordenada1D(int c) throws ExcepcionCoordenadaIncorrecta{
+	public Coordenada1D(int c) throws ExcepcionCoordenada1DIncorrecta{
 		if(c<0) {
-			throw new ExcepcionCoordenada1DIncorrecta(x);
+			throw new ExcepcionCoordenada1DIncorrecta(c);
 		}
 		else {
 			this.x=c;

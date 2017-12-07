@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public class TableroCeldasCuadradas extends Tablero2D {
+public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	
 	/**
 	 * Instantiates a new tablero celdas cuadradas.
@@ -43,7 +43,6 @@ public class TableroCeldasCuadradas extends Tablero2D {
 						 cadena=cadena+"*";
 					 }
 				} catch (ExcepcionCoordenadaIncorrecta e) {
-					// TODO Auto-generated catch block
 					throw new ExcepcionEjecucion(e);
 				}
 			}
@@ -138,6 +137,40 @@ public class TableroCeldasCuadradas extends Tablero2D {
 		}
 		return vecinas;
 	}
+
+	@Override
+	public String generaCadena() {
+		String cadena="";
+		cadena=cadena+"+";
+		for(int i=0;i<((Coordenada2D) dimensiones).getX();i++)
+			cadena=cadena+"-";
+		cadena=cadena+"+\n";
+		for(int j=0;j<((Coordenada2D) dimensiones).getY();j++) {
+			cadena=cadena+"|";
+			for(int i=0;i<((Coordenada2D) dimensiones).getX();i++) {
+			     try {
+					if(celdas.get(new Coordenada2D(i,j)).equals(EstadoCelda.MUERTA)) {
+						 cadena=cadena+" ";
+					 }else {
+						 cadena=cadena+"*";
+					 }
+				} catch (ExcepcionCoordenadaIncorrecta e) {
+					throw new ExcepcionEjecucion(e);
+				}
+			}
+			cadena=cadena+"|\n";
+		}
+		cadena=cadena+"+";
+		for(int i=0;i<((Coordenada2D) dimensiones).getX();i++)
+			cadena=cadena+"-";
+		cadena=cadena+"+\n";
+		return cadena;
+	}
+	
+	
+	
+	
+	
 }
 
 	

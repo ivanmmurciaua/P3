@@ -111,7 +111,7 @@ public abstract class Tablero {
         		state=this.celdas.get(dims);
         	}
         	else {
-        		throw new ExcepcionPosicionFueraTablero(dimensiones,dims);
+        		throw new ExcepcionPosicionFueraTablero(dims,dimensiones);
         	}	
     	}
     	return state;
@@ -134,7 +134,7 @@ public abstract class Tablero {
         		this.celdas.put(dims, estat);
         	}
         	else {
-        		throw new ExcepcionPosicionFueraTablero(dimensiones,dims);
+        		throw new ExcepcionPosicionFueraTablero(dims,dimensiones);
         	}	
     	}
     }
@@ -170,7 +170,7 @@ public abstract class Tablero {
 				throw new ExcepcionEjecucion(e);
 			}
 			if(!celdas.containsKey(c)){
-				throw new ExcepcionPosicionFueraTablero(dimensiones, c);
+				throw new ExcepcionPosicionFueraTablero(c,dimensiones);
 			}
 		}
     }
@@ -193,7 +193,7 @@ public abstract class Tablero {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
 		if(!celdas.containsKey(coordenadaInicial)) {
-			throw new ExcepcionPosicionFueraTablero(dimensiones, coordenadaInicial);
+			throw new ExcepcionPosicionFueraTablero(coordenadaInicial,dimensiones);
 		}
 		
 		cp = patron.getPosiciones();
@@ -223,12 +223,7 @@ public abstract class Tablero {
 	
 	}
 
-    /**
-	 * toString Tablero
-	 *
-	 * @return the string
-	 */
-	public abstract String toString();
+    
 	
 	/**
 	 * Gets the posiciones vecinas CCW.

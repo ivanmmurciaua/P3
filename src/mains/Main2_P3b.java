@@ -2,13 +2,13 @@ package mains;
 
 import java.util.ArrayList;
 
+import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.Patron;
-import modelo.Coordenada2D;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.ReglaConway;
 import modelo.TableroCeldasCuadradas;
+import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
@@ -18,7 +18,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 public class Main2_P3b {
 
 	public static void main(String[] args) {
-		// creamos un patrÃ³n
+		// creamos un patrón
 		TableroCeldasCuadradas tableroPatron = null;
 		TableroCeldasCuadradas tableroPatron2 = null;
 		Patron patron = null;
@@ -39,7 +39,7 @@ public class Main2_P3b {
 			tableroPatron.setCelda(new Coordenada2D(2,2), EstadoCelda.VIVA);
 			patron = new Patron("Glider", tableroPatron);	
 	
-			// creamos otro patrÃ³n
+			// creamos otro patrón
 			tableroPatron2 = new TableroCeldasCuadradas(2,2);
 			tableroPatron2.setCelda(new Coordenada2D(0,0), EstadoCelda.VIVA);
 			tableroPatron2.setCelda(new Coordenada2D(1,0), EstadoCelda.VIVA);
@@ -48,7 +48,7 @@ public class Main2_P3b {
 			tableroPatron2.setCelda(new Coordenada2D(1,1), EstadoCelda.VIVA);
 			patron2 = new Patron("Bloque", tableroPatron2);		
 			
-			// otro mÃ¡s
+			// otro más
 			TableroCeldasCuadradas tableroPatron3 = new TableroCeldasCuadradas(3,1);
 			tableroPatron3.setCelda(new Coordenada2D(0,0), EstadoCelda.VIVA);
 			tableroPatron3.setCelda(new Coordenada2D(1,0), EstadoCelda.VIVA);
@@ -70,11 +70,11 @@ public class Main2_P3b {
 			Juego juego = new Juego(t, r);
 			juego.cargaPatron(patron, new Coordenada2D(0,0));
 			try {
-				juego.cargaPatron(patron2, new Coordenada2D(10,5)); // aquÃ­ no se deberÃ­a cargar
+				juego.cargaPatron(patron2, new Coordenada2D(10,5)); // aquí no se debería cargar
 			} catch (ExcepcionPosicionFueraTablero e) {
 				System.err.println("Error cargando plantilla " + patron2.getNombre() + ":" + e.getMessage());
 			}
-			juego.cargaPatron(patron2, new Coordenada2D(8,3)); // aquÃ­ sÃ­
+			juego.cargaPatron(patron2, new Coordenada2D(8,3)); // aquí sí
 			juego.cargaPatron(patron3, new Coordenada2D(7,0));
 	
 			System.out.println("Patrones usados:");

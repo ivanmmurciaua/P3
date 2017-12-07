@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public class Tablero1D extends Tablero {
+public class Tablero1D extends Tablero implements Imprimible {
 	
 	/**
 	 * Instantiates a new tablero 1 D.
@@ -58,6 +58,9 @@ public class Tablero1D extends Tablero {
 	@Override
 	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
 		ArrayList<Coordenada> vecinas = new ArrayList<Coordenada>();
+		if(posicion==null) {
+			throw new ExcepcionArgumentosIncorrectos();
+		}
 		if(!celdas.containsKey(posicion)){
 			throw new ExcepcionPosicionFueraTablero(dimensiones,posicion);
 		}
@@ -79,5 +82,25 @@ public class Tablero1D extends Tablero {
 			return vecinas;
 		}
 	}
+
+	@Override
+	public String generaCadena() {
+		String cadena="";
+		cadena=cadena+"|";
+		for(int i=0;i<((Coordenada1D) dimensiones).getX();i++)
+			     try {
+					if(celdas.get(new Coordenada1D(i))==EstadoCelda.MUERTA) {
+						 cadena=cadena+" ";
+					 }else {
+						 cadena=cadena+"*";
+					 }
+				} catch (ExcepcionCoordenadaIncorrecta e) {
+					throw new ExcepcionEjecucion(e);
+				}
+			cadena=cadena+"|\n";
+			return cadena;
+	}
+	
+	
 
 }

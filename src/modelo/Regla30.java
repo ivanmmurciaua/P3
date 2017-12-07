@@ -24,15 +24,14 @@ public class Regla30 extends Regla {
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tab, Coordenada coor) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
 		
 		EstadoCelda resultado = null;
-		ArrayList<Coordenada> vecinas = tab.getPosicionesVecinasCCW(coor);
 		
 		if(tab == null || coor == null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
-		if(!((Tablero1D)tab).contiene(coor)) {
+		if(!(((Tablero1D)tab).contiene(coor))) {
 			throw new ExcepcionPosicionFueraTablero(tab.getDimensiones(), coor);
 		}
-		 
+		ArrayList<Coordenada> vecinas = tab.getPosicionesVecinasCCW(coor);
 		 if(vecinas.size() == 1) {
 			 resultado = EstadoCelda.MUERTA;
 		 }
