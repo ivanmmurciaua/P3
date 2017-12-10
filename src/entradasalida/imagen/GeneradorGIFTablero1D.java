@@ -27,7 +27,7 @@ public class GeneradorGIFTablero1D implements IGeneradorFichero {
 		if(file==null||juego==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
-		if(iteraciones<0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
+		if(iteraciones<=0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
 		Tablero1D tablero=(Tablero1D)juego.getTablero();
 		Coordenada1D anchura=(Coordenada1D)tablero.getDimensiones();
 		ImagenGIF gif=new ImagenGIF(anchura.getX(),iteraciones);

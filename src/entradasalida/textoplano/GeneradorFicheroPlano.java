@@ -29,7 +29,7 @@ public class GeneradorFicheroPlano implements IGeneradorFichero {
 		if(file==null||juego==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
-		if(iteraciones<0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
+		if(iteraciones<=0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
 		PrintWriter writer=null;
 		try {
 			writer = new PrintWriter(file);

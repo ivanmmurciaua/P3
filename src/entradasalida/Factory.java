@@ -6,7 +6,8 @@ import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
 import entradasalida.textoplano.GeneradorFicheroPlano;
 import modelo.*;
 import modelo.excepciones.ExcepcionEjecucion;
-import modelo.excepciones.ExcepcionArgumentosIncorrectos;;
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;;
 
 /**
  * The Class Factory.
@@ -81,10 +82,12 @@ public class Factory {
 	 *
 	 * @param dimensiones the dimensiones
 	 * @return the tablero
+	 * @throws ExcepcionCoordenadaIncorrecta the excepcion coordenada incorrecta
 	 */
-	public static Tablero creaTablero(Coordenada dimensiones) {
-		if(dimensiones==null) {throw new ExcepcionArgumentosIncorrectos();}
+	public static Tablero creaTablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta{
 		Tablero t=null;
+		if(dimensiones==null) {throw new ExcepcionArgumentosIncorrectos();}
+		
 		try {
 			if(dimensiones.getClass().getName()=="modelo.Coordenada1D") {
 				t= new Tablero1D(((Coordenada1D)dimensiones).getX());

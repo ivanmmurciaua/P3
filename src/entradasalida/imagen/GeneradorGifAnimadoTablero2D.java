@@ -28,7 +28,7 @@ public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
 		if(file==null||juego==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
-		if(iteraciones<0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
+		if(iteraciones<=0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
 		TableroCeldasCuadradas t= (TableroCeldasCuadradas)juego.getTablero();
 		Coordenada2D coor=(Coordenada2D)t.getDimensiones();
 		int anchura=coor.getX();
