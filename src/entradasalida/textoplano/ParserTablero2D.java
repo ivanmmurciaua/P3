@@ -8,10 +8,24 @@ import modelo.Tablero;
 import modelo.TableroCeldasCuadradas;
 import modelo.excepciones.*;
 
+/**
+ * The Class ParserTablero2D.
+ * 
+ * @author Iván Mañús Murcia 48729799K
+ */
 public class ParserTablero2D implements IParserTablero{
 	
+	/**
+	 * Instantiates a new parser tablero 2 D.
+	 */
 	public ParserTablero2D(){}
 	
+	/**
+	 * Longitud distinta.
+	 *
+	 * @param stringgg the stringgg
+	 * @throws ExcepcionLectura the excepcion lectura
+	 */
 	private void longitudDistinta(String[] stringgg) throws ExcepcionLectura {
 		int aux=stringgg[0].length();
 		for(int i=0;i<stringgg.length;i++) {
@@ -21,6 +35,9 @@ public class ParserTablero2D implements IParserTablero{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see entradasalida.IParserTablero#leeTablero(java.lang.String)
+	 */
 	@Override
 	public Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
 		ParserTablero1D pt1=new ParserTablero1D();

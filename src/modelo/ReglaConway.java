@@ -22,8 +22,8 @@ public class ReglaConway extends Regla {
 	 * @param tab the tab
 	 * @param coor the coor
 	 * @return the estado celda
-	 * @throws ExcepcionArgumentosIncorrectos
-	 * @throws ExcepcionPosicionFueraTablero
+	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
+	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
 	 */
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tab, Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero{
 		if(tab==null||coor==null) {

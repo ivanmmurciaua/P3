@@ -6,9 +6,27 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 import entradasalida.excepciones.ExcepcionLectura;
 
+/**
+ * The Class ParserTableros.
+ * 
+ * @author Iván Mañús Murcia 48729799K
+ */
 public class ParserTableros {
+	
+	/**
+	 * Instantiates a new parser tableros.
+	 */
 	public ParserTableros() {}
 	
+	/**
+	 * Lee tablero.
+	 *
+	 * @param s the string
+	 * @return the tablero
+	 * @throws ExcepcionLectura the excepcion lectura
+	 * @throws ExcepcionEjecucion the excepcion ejecucion
+	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
+	 */
 	public static Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
 		if(s==null) {
 			throw new ExcepcionArgumentosIncorrectos();

@@ -1,26 +1,28 @@
 package entradasalida.imagen;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
 import gifs.ImagenGIFAnimado;
-import modelo.Coordenada2D;
-import modelo.EstadoCelda;
-import modelo.Juego;
-import modelo.Tablero2D;
-import modelo.TableroCeldasCuadradas;
-import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
-import modelo.excepciones.ExcepcionEjecucion;
-import modelo.excepciones.ExcepcionPosicionFueraTablero;
+import modelo.*;
+import modelo.excepciones.*;
 
+/**
+ * The Class GeneradorGifAnimadoTablero2D.
+ * 
+ *  @author Iván Mañús Murcia 48729799K
+ */
 public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
 	
+	/**
+	 * Instantiates a new generador gif animado tablero 2 D.
+	 */
 	public GeneradorGifAnimadoTablero2D() {}
 
+	/* (non-Javadoc)
+	 * @see entradasalida.IGeneradorFichero#generaFichero(java.io.File, modelo.Juego, int)
+	 */
 	@Override
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null||juego==null) {
@@ -44,9 +46,9 @@ public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
 						throw new ExcepcionEjecucion(e);
 					}
 				}
-				gifa.addFotograma(fotograma);
-				juego.actualiza();
 			}
+			gifa.addFotograma(fotograma);
+			juego.actualiza();
 		}
 		gifa.guardaFichero(file);
 	}

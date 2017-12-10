@@ -16,7 +16,7 @@ public class Coordenada1D extends Coordenada {
 	 * Instantiates a new coordenada 1 D.
 	 *
 	 * @param c the c
-	 * @throws ExcepcionCoordenadaIncorrecta the excepcion coordenada incorrecta
+	 * @throws ExcepcionCoordenada1DIncorrecta the excepcion coordenada incorrecta
 	 */
 	public Coordenada1D(int c) throws ExcepcionCoordenada1DIncorrecta{
 		if(c<0) {
@@ -47,7 +47,6 @@ public class Coordenada1D extends Coordenada {
 	 * Suma
 	 *
 	 * @param otra the otra
-	 * @param coor the coor
 	 * @return the Coordenada1D
 	 * @throws ExcepcionCoordenadaIncorrecta the excepcion coordenada incorrecta
 	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos

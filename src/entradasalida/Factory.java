@@ -8,8 +8,26 @@ import modelo.*;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;;
 
+/**
+ * The Class Factory.
+ * 
+ * @author Iván Mañús Murcia 48729799K
+ */
 public class Factory {
+	
+	/**
+	 * Instantiates a new factory.
+	 */
 	public Factory() {}
+	
+	/**
+	 * Crea generador fichero.
+	 *
+	 * @param tablero the tablero
+	 * @param extension the extension
+	 * @return the i generador fichero
+	 * @throws ExcepcionGeneracion the excepcion generacion
+	 */
 	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero, String extension) throws ExcepcionGeneracion {
 		if(tablero==null||extension==null) {throw new ExcepcionArgumentosIncorrectos();}
 		IGeneradorFichero fin;
@@ -33,11 +51,18 @@ public class Factory {
 		}
 		return fin;
 	}
+	
+	/**
+	 * Crea regla.
+	 *
+	 * @param tablero the tablero
+	 * @return the regla
+	 */
 	public static Regla creaRegla(Tablero tablero) {
 		if(tablero==null) {throw new ExcepcionArgumentosIncorrectos();}
 		Regla r=null;
 		try {
-			if(tablero.getDimensiones().getClass().getName()=="modelo.Tablero1D") {
+			if(tablero.getDimensiones().getClass().getName()=="modelo.Coordenada1D") {
 				r= new Regla30();
 			}
 			else {
@@ -50,6 +75,13 @@ public class Factory {
 		return r;
 		
 	}
+	
+	/**
+	 * Crea tablero.
+	 *
+	 * @param dimensiones the dimensiones
+	 * @return the tablero
+	 */
 	public static Tablero creaTablero(Coordenada dimensiones) {
 		if(dimensiones==null) {throw new ExcepcionArgumentosIncorrectos();}
 		Tablero t=null;

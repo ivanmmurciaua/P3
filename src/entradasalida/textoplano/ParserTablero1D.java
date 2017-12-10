@@ -6,16 +6,30 @@ import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Tablero;
 import modelo.Tablero1D;
-import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
-import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
-import modelo.excepciones.ExcepcionEjecucion;
-import modelo.excepciones.ExcepcionPosicionFueraTablero;
+import modelo.excepciones.*;
 
+/**
+ * The Class ParserTablero1D.
+ * 
+ * @author Iván Mañús Murcia 48729799K
+ */
 public class ParserTablero1D implements IParserTablero{
 	
+	/**
+	 * Instantiates a new parser tablero 1 D.
+	 */
 	public ParserTablero1D(){}
 	
+	/**
+	 * Comprueba cadena.
+	 *
+	 * @param s the s
+	 * @param eleg the eleg
+	 * @return true, if successful
+	 * @throws ExcepcionLectura the excepcion lectura
+	 * @throws ExcepcionEjecucion the excepcion ejecucion
+	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
+	 */
 	protected boolean compruebaCadena(String s, boolean eleg) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
 		boolean ok=false;
 		if(s==null) {throw new ExcepcionArgumentosIncorrectos();}
@@ -44,6 +58,9 @@ public class ParserTablero1D implements IParserTablero{
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see entradasalida.IParserTablero#leeTablero(java.lang.String)
+	 */
 	@Override
 	public Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos{
 		
@@ -76,8 +93,6 @@ public class ParserTablero1D implements IParserTablero{
 		}
 		else {return null;}
 	}
-		
-
 }
 
 
