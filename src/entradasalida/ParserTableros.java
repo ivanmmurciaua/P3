@@ -18,18 +18,19 @@ public class ParserTableros {
 		}
 		boolean d2=false;
 		Tablero t=null;
+		IParserTablero ipt;
 		for (int i = 0; i < s.length(); i++) {
-			if(s.charAt(i)=='n') {
+			if(s.charAt(i)=='\n') {
 				d2=true;
 			}
 		}
 		if(d2) {
-			ParserTablero2D t1= new ParserTablero2D();
-			t=t1.leeTablero(s);
+			ipt= new ParserTablero2D();
+			t=ipt.leeTablero(s);
 		}
 		else {
-			ParserTablero1D t1= new ParserTablero1D();
-			t=t1.leeTablero(s);
+			ipt= new ParserTablero1D();
+			t=ipt.leeTablero(s);
 		}
 		return t;
 	}

@@ -12,4 +12,5 @@ public class MainCompilacionP3 {
 	public static void main(String[] args) throws ExcepcionCoordenadaIncorrecta{
 		
 	}
+}
 
