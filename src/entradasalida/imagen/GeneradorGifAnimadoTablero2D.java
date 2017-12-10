@@ -20,8 +20,8 @@ public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero{
 	 */
 	public GeneradorGifAnimadoTablero2D() {}
 
-	/* (non-Javadoc)
-	 * @see entradasalida.IGeneradorFichero#generaFichero(java.io.File, modelo.Juego, int)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {

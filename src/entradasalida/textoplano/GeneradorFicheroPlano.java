@@ -21,8 +21,8 @@ public class GeneradorFicheroPlano implements IGeneradorFichero {
 	 */
 	public GeneradorFicheroPlano() {}
 
-	/* (non-Javadoc)
-	 * @see entradasalida.IGeneradorFichero#generaFichero(java.io.File, modelo.Juego, int)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {

@@ -21,10 +21,7 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	public TableroCeldasCuadradas(int x, int y) throws ExcepcionEjecucion, ExcepcionCoordenadaIncorrecta {super(x,y);}
 	
 	/**
-	 * toString TabCeldasCuadradas
-	 *
-	 * @return the string
-	 * @throws ExcepcionEjecucion the excepcion ejecucion
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() throws ExcepcionEjecucion {
@@ -56,14 +53,9 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	}
 	
 	/**
-	 * Gets the posiciones vecinas CCW.
-	 *
-	 * @param coor the coor
-	 * @return the posiciones vecinas CCW
-	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
-	 * @throws ExcepcionEjecucion the excepcion ejecucion
-	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
+	 * {@inheritDoc}
 	 */
+	@Override
 	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionEjecucion, ExcepcionPosicionFueraTablero{
 		ArrayList<Coordenada> vecinas=new ArrayList<Coordenada>();
 		if(coor==null) {
@@ -137,7 +129,10 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 		}
 		return vecinas;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String generaCadena() {
 		String cadena="";
@@ -166,11 +161,6 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 		cadena=cadena+"+\n";
 		return cadena;
 	}
-	
-	
-	
-	
-	
 }
 
 	

@@ -35,8 +35,8 @@ public class ParserTablero2D implements IParserTablero{
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see entradasalida.IParserTablero#leeTablero(java.lang.String)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {

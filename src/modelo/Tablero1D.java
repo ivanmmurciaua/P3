@@ -24,10 +24,7 @@ public class Tablero1D extends Tablero implements Imprimible {
 	}
 
 	/**
-	 * toString Tab1D
-	 *
-	 * @return the string
-	 * @throws ExcepcionEjecucion the excepcion ejecucion
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() throws ExcepcionEjecucion {
@@ -48,12 +45,7 @@ public class Tablero1D extends Tablero implements Imprimible {
 		}
 		
 	/**
-	 * Gets the posiciones vecinas CCW.
-	 *
-	 * @param posicion the posicion
-	 * @return the posiciones vecinas CCW
-	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
-	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
+	 * {@inheritDoc}
 	 */
 	@Override
 	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
@@ -83,6 +75,9 @@ public class Tablero1D extends Tablero implements Imprimible {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String generaCadena() {
 		String cadena="";

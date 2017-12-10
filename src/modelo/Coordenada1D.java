@@ -77,9 +77,7 @@ public class Coordenada1D extends Coordenada {
 	}
 	
 	/**
-	 * Get the result.
-	 *
-	 * @return the result
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode() {
@@ -90,10 +88,7 @@ public class Coordenada1D extends Coordenada {
 	}
 	
 	/**
-	 * Check if equals.
-	 *
-	 * @param obj the obj
-	 * @return the boolean
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object obj) {
