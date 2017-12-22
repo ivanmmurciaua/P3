@@ -1,4 +1,6 @@
-package modelo.excepciones;
+package modelo.d1;
+
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
  * The Class ExcepcionCoordenada1DIncorrecta.

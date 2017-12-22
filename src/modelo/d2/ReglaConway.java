@@ -1,5 +1,7 @@
-package modelo;
-
+package modelo.d2;
+import modelo.EstadoCelda;
+import modelo.Regla;
+import modelo.Tablero;
 import modelo.excepciones.*;
 
 //import java.util.ArrayList;
@@ -9,7 +11,7 @@ import modelo.excepciones.*;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public class ReglaConway extends Regla {
+public class ReglaConway extends Regla<Coordenada2D> {
 	
 	/**
 	 * Instantiates a new regla conway.
@@ -20,13 +22,13 @@ public class ReglaConway extends Regla {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tab, Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero{
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada2D> tab, Coordenada2D coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero{
 		if(tab==null||coor==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
 		
 			int vecvivas=0;
-			Coordenada elegida;
+			Coordenada2D elegida;
 			EstadoCelda inicial=tab.getCelda(coor);
 			EstadoCelda res=EstadoCelda.MUERTA;
 			for(int i=0;i<tab.getPosicionesVecinasCCW(coor).size();i++) {

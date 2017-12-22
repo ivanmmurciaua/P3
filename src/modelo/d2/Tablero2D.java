@@ -1,5 +1,7 @@
-package modelo;
+package modelo.d2;
 import java.util.HashMap;
+import modelo.EstadoCelda;
+import modelo.Tablero;
 import modelo.excepciones.*;
 
 /**
@@ -7,7 +9,7 @@ import modelo.excepciones.*;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public abstract class Tablero2D extends Tablero {
+public abstract class Tablero2D extends Tablero<Coordenada2D> {
 	
 	/**
 	 * Instantiates a new tablero 2 D.
@@ -19,7 +21,7 @@ public abstract class Tablero2D extends Tablero {
 	 */
 	public Tablero2D(int ancho, int alto) throws ExcepcionCoordenadaIncorrecta,ExcepcionEjecucion {
 		super(new Coordenada2D(ancho,alto));
-		this.celdas = new HashMap<Coordenada,EstadoCelda>();
+		this.celdas = new HashMap<Coordenada2D,EstadoCelda>();
     	iniHashMap(this.celdas,true);
 	}
 }

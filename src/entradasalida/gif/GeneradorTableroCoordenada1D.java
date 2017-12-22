@@ -1,10 +1,13 @@
-package entradasalida.imagen;
+package entradasalida.gif;
 
 import java.io.File;
 import gifs.*;
 import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import modelo.*;
+import modelo.d1.Coordenada1D;
+import modelo.d1.ExcepcionCoordenada1DIncorrecta;
+import modelo.d1.Tablero1D;
 import modelo.excepciones.*;
 
 /**
@@ -12,18 +15,18 @@ import modelo.excepciones.*;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public class GeneradorGIFTablero1D implements IGeneradorFichero {
+public class GeneradorTableroCoordenada1D implements IGeneradorFichero {
 	
 	/**
 	 * Instantiates a new generador GIF tablero 1 D.
 	 */
-	public GeneradorGIFTablero1D() {}
+	public GeneradorTableroCoordenada1D() {}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
+	public void generaFichero(File file, Juego<?> juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null||juego==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}

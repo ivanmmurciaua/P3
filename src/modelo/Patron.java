@@ -7,14 +7,15 @@ import modelo.excepciones.*;
  * The Class Patron.
  * 
  * @author Iván Mañús Murcia 48729799K
+ * @param <TipoCoordenada> el tipo generico que extiende a Coordenada
  */
-public class Patron {
+public class Patron<TipoCoordenada extends Coordenada> {
 	
 	/** The nombre. */
 	private String nombre;
 	
 	/** The tablero. */
-	Tablero tablero;
+	Tablero<TipoCoordenada> tablero;
 
 	/**
 	 * Instantiates a new patron.
@@ -23,7 +24,7 @@ public class Patron {
 	 * @param tablero the tablero
 	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
 	 */
-	public Patron(String nombre,Tablero tablero) throws ExcepcionArgumentosIncorrectos{
+	public Patron(String nombre,Tablero<TipoCoordenada> tablero) throws ExcepcionArgumentosIncorrectos{
 		if(nombre==null||tablero==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -48,7 +49,7 @@ public class Patron {
 	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
 	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
 	 */
-	public EstadoCelda getCelda(Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero {
+	public EstadoCelda getCelda(TipoCoordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionPosicionFueraTablero {
 		if(coor==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -60,7 +61,7 @@ public class Patron {
 	 *
 	 * @return the posiciones
 	 */
-	public Collection<Coordenada> getPosiciones(){
+	public Collection<TipoCoordenada> getPosiciones(){
 		return tablero.getPosiciones();
 	}
 	

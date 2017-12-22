@@ -1,7 +1,9 @@
-package modelo;
+package modelo.d1;
 
 import java.util.ArrayList;
-
+import modelo.EstadoCelda;
+import modelo.Regla;
+import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
@@ -9,13 +11,13 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * The Class Regla30.
  * @author Iván Mañús Murcia 48729799K
  */
-public class Regla30 extends Regla {
+public class Regla30 extends Regla<Coordenada1D> {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tab, Coordenada coor) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada1D> tab, Coordenada1D coor) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
 		
 		EstadoCelda resultado = null;
 		
@@ -25,7 +27,7 @@ public class Regla30 extends Regla {
 		if(!(((Tablero1D)tab).contiene(coor))) {
 			throw new ExcepcionPosicionFueraTablero(tab.getDimensiones(), coor);
 		}
-		ArrayList<Coordenada> vecinas = tab.getPosicionesVecinasCCW(coor);
+		ArrayList<Coordenada1D> vecinas = tab.getPosicionesVecinasCCW(coor);
 		 if(vecinas.size() == 1) {
 			 resultado = EstadoCelda.MUERTA;
 		 }

@@ -1,5 +1,8 @@
-package modelo;
+package modelo.d1;
 import java.util.HashMap;
+import modelo.EstadoCelda;
+import modelo.Imprimible;
+import modelo.Tablero;
 import modelo.excepciones.*;
 import java.util.ArrayList;
 
@@ -8,7 +11,7 @@ import java.util.ArrayList;
  * 
  * @author Iván Mañús Murcia 48729799K
  */
-public class Tablero1D extends Tablero implements Imprimible {
+public class Tablero1D extends Tablero<Coordenada1D> implements Imprimible {
 	
 	/**
 	 * Instantiates a new tablero 1 D.
@@ -19,7 +22,7 @@ public class Tablero1D extends Tablero implements Imprimible {
 	 */
 	public Tablero1D(int ancho) throws ExcepcionCoordenadaIncorrecta, ExcepcionEjecucion{
 		super(new Coordenada1D(ancho));
-		this.celdas = new HashMap<Coordenada,EstadoCelda>();
+		this.celdas = new HashMap<Coordenada1D,EstadoCelda>();
 		iniHashMap(celdas,false);
 	}
 
@@ -48,8 +51,8 @@ public class Tablero1D extends Tablero implements Imprimible {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
-		ArrayList<Coordenada> vecinas = new ArrayList<Coordenada>();
+	public ArrayList<Coordenada1D> getPosicionesVecinasCCW(Coordenada1D posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+		ArrayList<Coordenada1D> vecinas = new ArrayList<Coordenada1D>();
 		if(posicion==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -57,16 +60,16 @@ public class Tablero1D extends Tablero implements Imprimible {
 			throw new ExcepcionPosicionFueraTablero(dimensiones,posicion);
 		}
 		else {
-			if(((Coordenada1D) posicion).getX()-1 >=0) {
+			if(posicion.getX()-1 >=0) {
 				try {
-					vecinas.add(new Coordenada1D(((Coordenada1D) posicion).getX()-1));
+					vecinas.add(new Coordenada1D(posicion.getX()-1));
 				} catch (ExcepcionCoordenadaIncorrecta e) {
 					throw new ExcepcionEjecucion(e);
 				}
 			}
-			if(((Coordenada1D) posicion).getX()+1 <((Coordenada1D)dimensiones).getX()) {
+			if(posicion.getX()+1 <dimensiones.getX()) {
 				try {
-					vecinas.add(new Coordenada1D(((Coordenada1D) posicion).getX()+1));
+					vecinas.add(new Coordenada1D(posicion.getX()+1));
 				} catch (ExcepcionCoordenadaIncorrecta e) {
 					throw new ExcepcionEjecucion(e);
 				}
@@ -82,7 +85,7 @@ public class Tablero1D extends Tablero implements Imprimible {
 	public String generaCadena() {
 		String cadena="";
 		cadena=cadena+"|";
-		for(int i=0;i<((Coordenada1D) dimensiones).getX();i++)
+		for(int i=0;i<dimensiones.getX();i++)
 			     try {
 					if(celdas.get(new Coordenada1D(i))==EstadoCelda.MUERTA) {
 						 cadena=cadena+" ";

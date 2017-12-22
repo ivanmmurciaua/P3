@@ -17,5 +17,5 @@ public interface IParserTablero {
 	 * @return the tablero
 	 * @throws ExcepcionLectura the excepcion lectura
 	 */
-	public Tablero leeTablero(String s) throws ExcepcionLectura;
+	public Tablero<?> leeTablero(String s) throws ExcepcionLectura;
 }

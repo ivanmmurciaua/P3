@@ -5,24 +5,26 @@ import java.util.Collection;
 import java.util.HashMap;
 import modelo.excepciones.*;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Juego.
- * 
+ *
  * @author Iván Mañús Murcia 48729799K
+ * @param <TipoCoordenada> el tipo generico que extiende a Coordenada
  */
-public class Juego {
+public class Juego<TipoCoordenada extends Coordenada> {
 	
 	
 	/** The regla. */
-	private Regla regla;
+	private Regla<TipoCoordenada> regla;
 	
 	
 	/** The tablero. */
-	private Tablero tablero; 
+	private Tablero<TipoCoordenada> tablero; 
 	
 	
 	/** The patrones usados. */
-	private ArrayList<Patron> patronesUsados=new ArrayList<Patron>();
+	private ArrayList<Patron<TipoCoordenada>> patronesUsados=new ArrayList<Patron<TipoCoordenada>>();
 
 	/**
 	 * Instantiates a new juego.
@@ -31,7 +33,7 @@ public class Juego {
 	 * @param regla the regla
 	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
 	 */
-	public Juego(Tablero tablero,Regla regla) throws ExcepcionArgumentosIncorrectos{
+	public Juego(Tablero<TipoCoordenada> tablero,Regla<TipoCoordenada> regla) throws ExcepcionArgumentosIncorrectos{
 		if(tablero==null||regla==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -51,7 +53,7 @@ public class Juego {
 	 * @throws ExcepcionEjecucion the excepcion ejecucion
 	 * @throws ExcepcionPosicionFueraTablero the excepcion posicion fuera tablero
 	 */
-	public void cargaPatron(Patron pat, Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionEjecucion,ExcepcionPosicionFueraTablero{
+	public void cargaPatron(Patron<TipoCoordenada> pat, TipoCoordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionEjecucion,ExcepcionPosicionFueraTablero{
 		if(pat==null||coor==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -68,12 +70,12 @@ public class Juego {
 	 * @throws ExcepcionEjecucion the excepcion ejecucion
 	 */
 	public void actualiza() throws ExcepcionEjecucion{
-		Collection<Coordenada> posicionesactuales;
+		Collection<TipoCoordenada> posicionesactuales;
 		EstadoCelda nuevo=EstadoCelda.MUERTA;
-		HashMap<Coordenada,EstadoCelda> asiresulta = new HashMap<Coordenada,EstadoCelda>();
+		HashMap<TipoCoordenada,EstadoCelda> asiresulta = new HashMap<TipoCoordenada,EstadoCelda>();
 		posicionesactuales=tablero.getPosiciones();
 		
-		for(Coordenada c : posicionesactuales) {
+		for(TipoCoordenada c : posicionesactuales) {
 			try {
 				nuevo=regla.calculaSiguienteEstadoCelda(tablero, c);
 			} catch (ExcepcionPosicionFueraTablero e) {
@@ -82,7 +84,7 @@ public class Juego {
 			asiresulta.put(c, nuevo);
 		}
 		
-		for(Coordenada c : asiresulta.keySet()) {                //el keySet sirve para iterar por coordenadas
+		for(TipoCoordenada c : asiresulta.keySet()) {                //el keySet sirve para iterar por coordenadas
 			try {
 				tablero.setCelda(c, asiresulta.get(c));
 			} catch (ExcepcionPosicionFueraTablero e) {
@@ -96,13 +98,13 @@ public class Juego {
 	 *
 	 * @return the tablero
 	 */
-	public Tablero getTablero() {return tablero;}
+	public Tablero<TipoCoordenada> getTablero() {return tablero;}
 	
 	/**
 	 * Gets the patrones.
 	 *
 	 * @return the patrones
 	 */
-	public ArrayList<Patron> getPatrones(){return patronesUsados;}
+	public ArrayList<Patron<TipoCoordenada>> getPatrones(){return patronesUsados;}
 }
 	

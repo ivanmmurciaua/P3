@@ -1,11 +1,11 @@
-package entradasalida.textoplano;
+package entradasalida.txt;
 
 import entradasalida.IParserTablero;
 import entradasalida.excepciones.ExcepcionLectura;
-import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Tablero;
-import modelo.TableroCeldasCuadradas;
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.*;
 
 /**
@@ -39,7 +39,7 @@ public class ParserTablero2D implements IParserTablero{
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
+	public Tablero<Coordenada2D> leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
 		ParserTablero1D pt1=new ParserTablero1D();
 		TableroCeldasCuadradas t2;
 		if(pt1.compruebaCadena(s, true)) {

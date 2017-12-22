@@ -1,4 +1,5 @@
-package modelo;
+package modelo.d2;
+import modelo.Coordenada;
 import modelo.excepciones.*;
 
 /**

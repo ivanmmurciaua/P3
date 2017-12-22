@@ -19,5 +19,5 @@ public interface IGeneradorFichero {
 	 * @param n the iterations
 	 * @throws ExcepcionGeneracion the excepcion generacion
 	 */
-	public void generaFichero(File f, Juego j, int n) throws ExcepcionGeneracion;
+	public void generaFichero(File f, Juego<?> j, int n) throws ExcepcionGeneracion;
 }

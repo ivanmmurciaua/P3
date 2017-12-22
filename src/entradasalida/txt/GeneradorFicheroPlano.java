@@ -1,4 +1,4 @@
-package entradasalida.textoplano;
+package entradasalida.txt;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,11 +25,14 @@ public class GeneradorFicheroPlano implements IGeneradorFichero {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
+	public void generaFichero(File file, Juego<?> juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null||juego==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
 		if(iteraciones<=0) {throw new ExcepcionGeneracion("Iteraciones menores a 0");}
+		if(juego.getTablero() instanceof Imprimible) {}else {
+			throw new ExcepcionGeneracion("No es instanceof Imprimible");
+		}
 		PrintWriter writer=null;
 		try {
 			writer = new PrintWriter(file);
@@ -38,12 +41,7 @@ public class GeneradorFicheroPlano implements IGeneradorFichero {
 		}
 		for (int i = 0; i < iteraciones; i++) {
 			juego.actualiza();
-			if(juego.getTablero() instanceof Imprimible) {
-				writer.print(((Imprimible) juego.getTablero()).generaCadena());
-			}else {
-				throw new ExcepcionGeneracion("No es instanceof Imprimible");
-			}
-			
+			writer.print(((Imprimible) juego.getTablero()).generaCadena());
 		}
 		writer.close();
 	}

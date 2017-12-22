@@ -1,4 +1,6 @@
-package modelo;
+package modelo.d2;
+import modelo.EstadoCelda;
+import modelo.Imprimible;
 import modelo.excepciones.*;
 import java.util.ArrayList;
 
@@ -27,12 +29,12 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	public String toString() throws ExcepcionEjecucion {
 		String cadena="";
 		cadena=cadena+"+";
-		for(int i=0;i<((Coordenada2D) dimensiones).getX();i++)
+		for(int i=0;i<dimensiones.getX();i++)
 			cadena=cadena+"-";
 		cadena=cadena+"+\n";
-		for(int j=0;j<((Coordenada2D) dimensiones).getY();j++) {
+		for(int j=0;j<dimensiones.getY();j++) {
 			cadena=cadena+"|";
-			for(int i=0;i<((Coordenada2D) dimensiones).getX();i++) {
+			for(int i=0;i<dimensiones.getX();i++) {
 			     try {
 					if(celdas.get(new Coordenada2D(i,j)).equals(EstadoCelda.MUERTA)) {
 						 cadena=cadena+" ";
@@ -56,71 +58,71 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada coor) throws ExcepcionArgumentosIncorrectos,ExcepcionEjecucion, ExcepcionPosicionFueraTablero{
-		ArrayList<Coordenada> vecinas=new ArrayList<Coordenada>();
+	public ArrayList<Coordenada2D> getPosicionesVecinasCCW(Coordenada2D coor) throws ExcepcionArgumentosIncorrectos,ExcepcionEjecucion, ExcepcionPosicionFueraTablero{
+		ArrayList<Coordenada2D> vecinas=new ArrayList<Coordenada2D>();
 		if(coor==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
 		else {
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()-1, ((Coordenada2D) coor).getY()-1))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX() - 1, ((Coordenada2D) coor).getY() - 1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()-1, coor.getY()-1))){
+					vecinas.add(new Coordenada2D(coor.getX() - 1, coor.getY() - 1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()-1, ((Coordenada2D) coor).getY()))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX()-1, ((Coordenada2D) coor).getY()));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()-1, coor.getY()))){
+					vecinas.add(new Coordenada2D(coor.getX()-1, coor.getY()));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()-1, ((Coordenada2D) coor).getY()+1))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX()-1, ((Coordenada2D) coor).getY()+1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()-1, coor.getY()+1))){
+					vecinas.add(new Coordenada2D(coor.getX()-1, coor.getY()+1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX(), ((Coordenada2D) coor).getY()+1))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX(), ((Coordenada2D) coor).getY()+1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX(), coor.getY()+1))){
+					vecinas.add(new Coordenada2D(coor.getX(), coor.getY()+1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()+1))){
-						vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()+1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()+1, coor.getY()+1))){
+						vecinas.add(new Coordenada2D(coor.getX()+1, coor.getY()+1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()+1, coor.getY()))){
+					vecinas.add(new Coordenada2D(coor.getX()+1, coor.getY()));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()-1))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX()+1, ((Coordenada2D) coor).getY()-1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX()+1, coor.getY()-1))){
+					vecinas.add(new Coordenada2D(coor.getX()+1, coor.getY()-1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block
 				
 			}
 			try {
-				if(this.celdas.containsKey(new Coordenada2D(((Coordenada2D) coor).getX(), ((Coordenada2D) coor).getY()-1))){
-					vecinas.add(new Coordenada2D(((Coordenada2D) coor).getX(), ((Coordenada2D) coor).getY()-1));
+				if(this.celdas.containsKey(new Coordenada2D(coor.getX(), coor.getY()-1))){
+					vecinas.add(new Coordenada2D(coor.getX(), coor.getY()-1));
 				}
 			} catch (ExcepcionCoordenadaIncorrecta e) {
 				// TODO Auto-generated catch block

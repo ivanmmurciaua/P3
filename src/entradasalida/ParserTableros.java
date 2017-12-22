@@ -1,10 +1,10 @@
 package entradasalida;
-import entradasalida.textoplano.ParserTablero1D;
-import entradasalida.textoplano.ParserTablero2D;
 import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 import entradasalida.excepciones.ExcepcionLectura;
+import entradasalida.txt.ParserTablero1D;
+import entradasalida.txt.ParserTablero2D;
 
 /**
  * The Class ParserTableros.
@@ -27,7 +27,7 @@ public class ParserTableros {
 	 * @throws ExcepcionEjecucion the excepcion ejecucion
 	 * @throws ExcepcionArgumentosIncorrectos the excepcion argumentos incorrectos
 	 */
-	public static Tablero leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
+	public static Tablero<?> leeTablero(String s) throws ExcepcionLectura, ExcepcionEjecucion,ExcepcionArgumentosIncorrectos {
 		if(s==null) {
 			throw new ExcepcionArgumentosIncorrectos();
 		}
@@ -35,7 +35,7 @@ public class ParserTableros {
 			throw new ExcepcionLectura("Vacio");
 		}
 		boolean d2=false;
-		Tablero t=null;
+		Tablero<?> t=null;
 		IParserTablero ipt;
 		for (int i = 0; i < s.length(); i++) {
 			if(s.charAt(i)=='\n') {
