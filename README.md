@@ -1,5 +1,3 @@
-48729799
-
 # Prácticas de Programación 3: Juego de la vida de Conway
 **Alumno/a:** Iván Mañús Murcia
 
